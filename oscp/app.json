@@ -1,0 +1,38 @@
+{
+    "acceptedResumeTypes": [
+        "html",
+        "text",
+        "txt",
+        "pdf",
+        "doc",
+        "docx",
+        "rtf",
+        "odt"
+    ],
+    "companyName": "Testing",
+    "defaultLocale": "en-US",
+    "supportedLocales": [
+        "en-US",
+        "fr-FR"
+    ],
+    "minUploadSize": 4096,
+    "maxRelatedJobs": 5,
+    "maxUploadSize": 5242880,
+    "service": {
+        "batchSize": 500,
+        "corpToken": "",
+        "port": null,
+        "swimlane": ""
+    },
+    "integrations": {
+        "linkedin": {
+            "clientId": ""
+        }
+    },
+    "defaultGridState": "list-view",
+    "eeoc": {
+        "genderRaceEthnicity": false,
+        "veteran": false,
+        "disability": false
+    }
+}
