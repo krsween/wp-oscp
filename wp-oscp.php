@@ -69,8 +69,6 @@ function oscp_plugin_add_shortcode($atts) {
 	}
 	$html .= '></iframe>'."\n";
 
-	$html .= '<!-- ' . $attr . '-->';
-
 	if (isset($atts["same_height_as"])) {
 		$html .= '
 			<script>
