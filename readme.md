@@ -15,7 +15,8 @@ and extract it into your plugins directory.
 
 ## Implementation
 
-Getting your Career Portal to show up in WordPress:
+Getting your Career Portal to show up in WordPress is easy. Simply add and
+customize the following script:
 
 
 ```
