@@ -3,22 +3,20 @@
 Plugin Name: Bullhorn Career Portal Wordpress Plugin
 Plugin URI: http://github.com/krsween/wp-oscp
 Description: A really simple lightweight installer for Career Portal inside of Wordpress.
-Version: 0.0.1
+Version: 0.0.2
 Author: krsween
 Author URI: http://krsween.com
 License: MIT
 */
 
-define('DISALLOW_FILE_EDIT', true);
-define('APP_JSON_PATH', './wp-content/plugins/wp-oscp/oscp/app.json');
-
-define('OSCP_WP_PLUGIN_VERSION', '0.0.1');
+define('OSCP_APP_JSON_PATH', plugins_url() . '/wp-oscp/oscp/app.json');
+define('OSCP_PLUGIN_VERSION', '0.0.2');
 
 function oscp_plugin_add_shortcode($atts) {
 	$defaults = array(
-		'src' => '../wp-content/plugins/wp-oscp/oscp/index.html',
+		'src' => plugins_url() . '/wp-oscp/oscp/index.html',
 		'width' => '100%',
-		'height' => '500px',
+		'height' => '400px',
 		'scrolling' => 'yes',
 		'class' => 'iframe-class',
 		'frameborder' => '0'
@@ -30,7 +28,7 @@ function oscp_plugin_add_shortcode($atts) {
 		}
 	}
 
-	$html = "\n".'<!-- wp-oscp plugin v' . OSCP_WP_PLUGIN_VERSION . ' -->' . "\n";
+	$html = "\n".'<!-- oscp plugin v' . OSCP_PLUGIN_VERSION . ' -->' . "\n";
 	$html .= '<iframe';
 	foreach($atts as $attr => $value) {
 		if (strtolower($attr) != 'same_height_as'
@@ -46,25 +44,25 @@ function oscp_plugin_add_shortcode($atts) {
 				$html .= ' ' . esc_attr($attr);
 			}
 		} else if (strtolower($attr) == 'corptoken') {
-            $jsonString = file_get_contents(APP_JSON_PATH);
+            $jsonString = file_get_contents(OSCP_APP_JSON_PATH);
             $data = json_decode($jsonString, true);
             $data['service']['corpToken'] = esc_attr($value);
             $newJsonString = json_encode($data);
-            file_put_contents(APP_JSON_PATH, $newJsonString);
+            file_put_contents(OSCP_APP_JSON_PATH, $newJsonString);
 
         } else if (strtolower($attr) == 'sl') {
-            $jsonString = file_get_contents(APP_JSON_PATH);
+            $jsonString = file_get_contents(OSCP_APP_JSON_PATH);
             $data = json_decode($jsonString, true);
             $data['service']['swimlane'] = esc_attr($value);
             $newJsonString = json_encode($data);
-            file_put_contents(APP_JSON_PATH, $newJsonString);
+            file_put_contents(OSCP_APP_JSON_PATH, $newJsonString);
 
         } else if (strtolower($attr) == 'li') {
-            $jsonString = file_get_contents(APP_JSON_PATH);
+            $jsonString = file_get_contents(OSCP_APP_JSON_PATH);
             $data = json_decode($jsonString, true);
             $data['integrations']['linkedin']['clientId'] = esc_attr($value);
             $newJsonString = json_encode($data);
-            file_put_contents(APP_JSON_PATH, $newJsonString);
+            file_put_contents(OSCP_APP_JSON_PATH, $newJsonString);
         }
 	}
 	$html .= '></iframe>'."\n";
