@@ -3,14 +3,14 @@
 Plugin Name: Bullhorn Career Portal Wordpress Plugin
 Plugin URI: http://github.com/krsween/wp-oscp
 Description: A really simple lightweight installer for Career Portal inside of Wordpress.
-Version: 0.0.2
+Version: 0.0.3
 Author: krsween
 Author URI: http://krsween.com
 License: MIT
 */
 
 define('OSCP_APP_JSON_PATH', plugins_url() . '/wp-oscp/oscp/app.json');
-define('OSCP_PLUGIN_VERSION', '0.0.2');
+define('OSCP_PLUGIN_VERSION', '0.0.3');
 
 function oscp_plugin_add_shortcode($atts) {
 	$defaults = array(
