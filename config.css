@@ -1,0 +1,43 @@
+#bh-logo {
+    padding: 1em;
+    text-align: right;
+}
+
+#config-app {
+    background-color: white;
+    padding: .1em 1em 1em;
+
+}
+
+.underline {
+    border-bottom: solid thin rgba(0, 0, 0, 0.1);
+    margin-bottom: 1em;
+}
+
+.overline {
+    border-top: solid thin rgba(0, 0, 0, 0.1);
+}
+
+p > span.required {
+    color: red;
+}
+
+input,
+select {
+    width: 90%;
+    margin: 0 10% 0 0;
+}
+
+@media (max-width: 650px) {
+    .col-xs-hidden {
+        display: none;
+    }
+}
+
+#oscp-container p.submit {
+    width: inherit;
+    text-align: right;
+}
+#oscp-container select {
+    width: 25em;
+}
